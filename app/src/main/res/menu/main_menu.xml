@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.vo2.ui.MainActivity">
+    <group android:menuCategory="container">
+        <item
+            android:id="@+id/version"
+            android:orderInCategory="1"
+            android:title="@string/versi_n"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/clasificacion"
+            android:orderInCategory="1"
+            android:title="@string/valores_de_"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/acerca"
+            android:orderInCategory="1"
+            android:title="@string/acerca_de"
+            app:showAsAction="never" />
+
+    </group>
+</menu>
