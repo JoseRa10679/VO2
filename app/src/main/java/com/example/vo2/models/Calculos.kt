@@ -60,7 +60,7 @@ class Calculos {
     fun capacidad_F(cf: String): String{
         return when{
             cf.toDouble()<4.5 -> cf_baja
-            cf.toDouble()>=4.5 && cf.toDouble()<=6 -> cf_intermedia
+            cf.toDouble() in 4.5..6.0 -> cf_intermedia
             else -> cf_alta
         }
     }
