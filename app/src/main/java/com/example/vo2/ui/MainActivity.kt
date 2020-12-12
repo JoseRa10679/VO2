@@ -94,7 +94,7 @@ class MainActivity : AppCompatActivity() {
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     val miS = if (s.isNullOrEmpty()) 0 else  s.toString().toInt()
                     if (miS > 30) {
-                        Toast.makeText(applicationContext, " Probable Error:\n El valor es superior a 30 minutos ", Toast.LENGTH_SHORT).apply {
+                        Toast.makeText(applicationContext, "Probable Error:\nEl valor es superior a 30 minutos ", Toast.LENGTH_SHORT).apply {
                             setGravity(Gravity.CENTER, 0, 0)
                             setPadding(50, 50, 50, 50)
                             view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.yellow)
@@ -113,9 +113,13 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val miS = if (s.isNullOrEmpty()) 0 else s.toString().toInt()
                 if (miS > 59) {
-                    Toast.makeText(applicationContext, " Error: El valor no puede ser superior a 59 ", Toast.LENGTH_SHORT).apply {
+                    Toast.makeText(applicationContext, "Error:\nEl valor no puede ser superior a 59 ", Toast.LENGTH_SHORT).apply {
                         setGravity(Gravity.CENTER, 0, 0)
-                        view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.yellow))
+                        view.run{
+                            setPadding(20 ,20,20,20)
+                            setBackgroundColor(ContextCompat.getColor(context, R.color.yellow))
+                        }
+
                         show()
                     }
                     with(binding.editTextSegundos) {
@@ -136,6 +140,14 @@ class MainActivity : AppCompatActivity() {
             binding.textViewResultado2.text = it
         })
 
+        miViewModel.getcapFuncional().observe(this,{
+            binding.textViewCapF.text = it
+        })
+
+        miViewModel.getclaseF().observe(this,{
+            binding.textViewClaseF.text = it
+        })
+
         binding.button.setOnClickListener {
             with(binding) {
                 if (editTextMinutos.text.isNotEmpty() && editTextSegundos.text.isNotEmpty()) {
@@ -143,6 +155,12 @@ class MainActivity : AppCompatActivity() {
                             editTextSegundos.text.toString(),
                             rbHombre.isChecked)
                     miViewModel.setmiMETs(editTextMinutos.text.toString(),
+                            editTextSegundos.text.toString(),
+                            rbHombre.isChecked)
+                    miViewModel.setclaseF(editTextMinutos.text.toString(),
+                            editTextSegundos.text.toString(),
+                            rbHombre.isChecked)
+                    miViewModel.setcapFuncional(editTextMinutos.text.toString(),
                             editTextSegundos.text.toString(),
                             rbHombre.isChecked)
                     UIUtil.hideKeyboard(this@MainActivity)

@@ -14,6 +14,8 @@
     <string name="valores_de_">Valores de referencia</string>
     <string name="acerca_de">Acerca de…</string>
     <string name="mets">METs</string>
+    <string name="capacidad_funcional">Capacidad Funcional</string>
+    <string name="clase_funcional">Clase Funcional</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.

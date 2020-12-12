@@ -20,6 +20,24 @@ class MainViewModel: ViewModel() {
        _miMETs?.value = "$i METs"
     }
 
+    private val _claseF: MutableLiveData<String>? by lazy { MutableLiveData<String>() }
+    fun getclaseF() = _claseF as LiveData<String>
+    fun setclaseF(m:String,s:String,h:Boolean){
+        val calculos = Calculos()
+        val mT: Double = calculos.miTiempo(m.toInt(),s.toInt())
+        val i= if (h) {calculos.calculaHombre(mT)/3.5} else {calculos.calculoMujer(mT)/3.5}
+       _claseF?.value = calculos.clase_F(i.toString())
+    }
+
+    private val _capFuncional: MutableLiveData<String>? by lazy { MutableLiveData<String>() }
+    fun getcapFuncional() = _capFuncional as LiveData<String>
+    fun setcapFuncional(m:String,s:String,h:Boolean){
+        val calculos = Calculos()
+        val mT: Double = calculos.miTiempo(m.toInt(),s.toInt())
+        val i= if (h) {calculos.calculaHombre(mT)/3.5} else {calculos.calculoMujer(mT)/3.5}
+       _capFuncional?.value = calculos.capacidad_F(i.toString())
+    }
+
     private fun miCalculo(m: String, s: String, h:Boolean, mets:Boolean):String{
         val calcula = Calculos()
         val mT: Double = calcula.miTiempo(m.toInt(),s.toInt())
