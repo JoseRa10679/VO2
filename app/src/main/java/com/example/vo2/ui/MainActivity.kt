@@ -86,18 +86,13 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        with(binding.editTextMinutos) {
+        binding.editTextMinutos.run{
             requestFocus()
-
             addTextChangedListener(object : TextWatcher {
                 override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
+                override fun afterTextChanged(s: Editable?) {}
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                    val miS = if (s.isNullOrEmpty()) {
-                        0
-                    } else {
-                        s.toString().toInt()
-                    }
+                    val miS = if (s.isNullOrEmpty()) 0 else  s.toString().toInt()
                     if (miS > 30) {
                         Toast.makeText(applicationContext, " Probable Error:\n El valor es superior a 30 minutos ", Toast.LENGTH_SHORT).apply {
                             setGravity(Gravity.CENTER, 0, 0)
@@ -109,22 +104,14 @@ class MainActivity : AppCompatActivity() {
                         selectAll()
                     }
                 }
-
-                override fun afterTextChanged(s: Editable?) {}
-
             })
         }
-
 
         binding.editTextSegundos.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                val miS = if (s.isNullOrEmpty()) {
-                    0
-                } else {
-                    s.toString().toInt()
-                }
+                val miS = if (s.isNullOrEmpty()) 0 else s.toString().toInt()
                 if (miS > 59) {
                     Toast.makeText(applicationContext, " Error: El valor no puede ser superior a 59 ", Toast.LENGTH_SHORT).apply {
                         setGravity(Gravity.CENTER, 0, 0)
@@ -137,7 +124,6 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
-
             override fun afterTextChanged(s: Editable?) {}
 
         })
@@ -146,10 +132,17 @@ class MainActivity : AppCompatActivity() {
             binding.textViewResultado.text = it
         })
 
+        miViewModel.getmiMETs().observe(this,{
+            binding.textViewResultado2.text = it
+        })
+
         binding.button.setOnClickListener {
             with(binding) {
                 if (editTextMinutos.text.isNotEmpty() && editTextSegundos.text.isNotEmpty()) {
                     miViewModel.setmiResultado(editTextMinutos.text.toString(),
+                            editTextSegundos.text.toString(),
+                            rbHombre.isChecked)
+                    miViewModel.setmiMETs(editTextMinutos.text.toString(),
                             editTextSegundos.text.toString(),
                             rbHombre.isChecked)
                     UIUtil.hideKeyboard(this@MainActivity)

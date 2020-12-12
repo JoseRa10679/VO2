@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="384dp" />
+        app:layout_constraintGuide_begin="375dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -124,6 +124,7 @@
         android:layout_width="58dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="number"
         android:maxLength="2"
         android:paddingStart="10dp"
@@ -133,9 +134,10 @@
         android:textIsSelectable="true"
         app:layout_constraintBottom_toBottomOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="@+id/editTextMinutos"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/editTextMinutos"
         app:layout_constraintTop_toTopOf="@+id/textView5"
-        android:importantForAutofill="no"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="LabelFor" />
 
     <Button
@@ -160,6 +162,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textViewResultado2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/amarante"
+        android:text="@string/mets"
+        android:textColor="#C90101"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResultado"
+        app:layout_constraintVertical_bias="0.19" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

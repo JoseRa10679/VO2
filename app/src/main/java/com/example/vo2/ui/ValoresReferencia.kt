@@ -11,13 +11,13 @@ class ValoresReferencia : AppCompatActivity() {
         ActivityValoresReferenciaBinding.inflate(layoutInflater)
     }
 
-    private val archivo = "CAPACIDAD FUNCIONAL.pdf"
+    private val aRchivo = "CAPACIDAD FUNCIONAL.pdf"
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        binding.pdfView.fromAsset(archivo).show()
+        binding.pdfView.fromAsset(aRchivo).show()
     }
 }
