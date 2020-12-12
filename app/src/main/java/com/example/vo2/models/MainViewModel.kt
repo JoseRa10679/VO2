@@ -24,12 +24,8 @@ class MainViewModel: ViewModel() {
         val calcula = Calculos()
         val mT: Double = calcula.miTiempo(m.toInt(),s.toInt())
         val x: Double = if (mets) 3.5 else 1.0
-        val i: String = if(h){
-            String.format ("%,.2f", calcula.calculaHombre(mT)/x)
-        }else{
-            String.format("%,.2f",calcula.calculoMujer(mT)/x)
-        }
-        return i
+        return if(h){String.format ("%,.2f", calcula.calculaHombre(mT)/x)
+                    }else{String.format("%,.2f",calcula.calculoMujer(mT)/x)}
     }
 
 }
