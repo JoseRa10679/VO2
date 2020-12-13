@@ -133,21 +133,7 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {}
         })
 
-        miViewModel.getmiResultado().observe(this, {
-            binding.textViewResultado.text = it
-        })
-
-        miViewModel.getmiMETs().observe(this,{
-            binding.textViewResultado2.text = it
-        })
-
-        miViewModel.getcapFuncional().observe(this,{
-            binding.textViewCapF.text = it
-        })
-
-        miViewModel.getclaseF().observe(this,{
-            binding.textViewClaseF.text = it
-        })
+        observa()
 
         binding.button.setOnClickListener {
             with(binding) {
@@ -167,6 +153,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun observa() {
+        miViewModel.run {
+
+            getmiResultado().observe(this@MainActivity, {
+                binding.textViewResultado.text = it
+            })
+
+            getmiMETs().observe(this@MainActivity, {
+                binding.textViewResultado2.text = it
+            })
+
+            getcapFuncional().observe(this@MainActivity, {
+                binding.textViewCapF.text = it
+            })
+
+            getclaseF().observe(this@MainActivity, {
+                binding.textViewClaseF.text = it
+            })
+        }
     }
 
 
