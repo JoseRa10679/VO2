@@ -56,18 +56,17 @@
                 android:textAllCaps="true"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="@+id/editTextSegundos"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintHorizontal_bias="0.76"
-                app:layout_constraintStart_toEndOf="@+id/editTextMinutos"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/editTextMinutos">
 
                 <RadioButton
@@ -85,27 +84,14 @@
                     android:text="@string/mujer" />
             </RadioGroup>
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="29dp" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="351dp" />
-
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
                 android:text="@string/minutos"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <EditText
@@ -124,8 +110,7 @@
                 android:text="@string/_0"
                 app:layout_constraintBottom_toBottomOf="@+id/textView4"
                 app:layout_constraintStart_toEndOf="@+id/textView4"
-                app:layout_constraintStart_toStartOf="@+id/editTextSegundos"
-                app:layout_constraintTop_toTopOf="@+id/textView4" />
+                app:layout_constraintStart_toStartOf="@+id/editTextSegundos" />
 
             <EditText
                 android:id="@+id/editTextSegundos"
@@ -142,18 +127,17 @@
                 android:selectAllOnFocus="true"
                 android:text="@string/_0"
                 android:textIsSelectable="true"
-                app:layout_constraintBottom_toTopOf="@+id/button"
-                app:layout_constraintStart_toEndOf="@+id/textView5"
-                app:layout_constraintTop_toBottomOf="@+id/editTextMinutos"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView5"
+                app:layout_constraintStart_toEndOf="@+id/textView5" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="24dp"
                 android:text="@string/segundos"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
             <Button
@@ -162,8 +146,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:text="@string/calcular"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
             <TextView
@@ -175,8 +159,8 @@
                 android:text="@string/resutado"
                 android:textColor="#C90101"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/button" />
 
             <TextView
@@ -188,8 +172,8 @@
                 android:text="@string/mets"
                 android:textColor="#620101"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewResultado" />
 
             <TextView
@@ -201,8 +185,8 @@
                 android:text="@string/clase_funcional"
                 android:textColor="#0318A7"
                 android:textSize="18sp"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewResultado2" />
 
             <TextView
@@ -216,8 +200,8 @@
                 android:textColor="#01481F"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/guideline2"
-                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textViewClaseF" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
