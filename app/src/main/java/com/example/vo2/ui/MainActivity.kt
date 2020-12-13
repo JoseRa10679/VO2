@@ -16,7 +16,7 @@ import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import com.example.vo2.R
 import com.example.vo2.databinding.ActivityMainBinding
-import com.example.vo2.models.MainViewModel
+import com.example.vo2.modelos.MainViewModel
 import net.yslibrary.android.keyboardvisibilityevent.util.UIUtil
 
 class MainActivity : AppCompatActivity() {
@@ -96,9 +96,12 @@ class MainActivity : AppCompatActivity() {
                     if (miS > 30) {
                         Toast.makeText(applicationContext, "Probable Error:\nEl valor es superior a 30 minutos ", Toast.LENGTH_SHORT).apply {
                             setGravity(Gravity.CENTER, 0, 0)
-                            setPadding(50, 50, 50, 50)
-                            view.setBackgroundColor(ContextCompat.getColor(view.context, R.color.yellow)
-                            )
+                            view.run{
+                                setPadding(50, 50, 50, 50)
+                                setBackgroundColor(ContextCompat.getColor(context, R.color.yellow)
+                                )
+                            }
+
                             show()
                         }
                         selectAll()
@@ -109,7 +112,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.editTextSegundos.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val miS = if (s.isNullOrEmpty()) 0 else s.toString().toInt()
                 if (miS > 59) {
@@ -129,7 +131,6 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             override fun afterTextChanged(s: Editable?) {}
-
         })
 
         miViewModel.getmiResultado().observe(this, {
@@ -151,18 +152,16 @@ class MainActivity : AppCompatActivity() {
         binding.button.setOnClickListener {
             with(binding) {
                 if (editTextMinutos.text.isNotEmpty() && editTextSegundos.text.isNotEmpty()) {
-                    miViewModel.setmiResultado(editTextMinutos.text.toString(),
-                            editTextSegundos.text.toString(),
-                            rbHombre.isChecked)
-                    miViewModel.setmiMETs(editTextMinutos.text.toString(),
-                            editTextSegundos.text.toString(),
-                            rbHombre.isChecked)
-                    miViewModel.setclaseF(editTextMinutos.text.toString(),
-                            editTextSegundos.text.toString(),
-                            rbHombre.isChecked)
-                    miViewModel.setcapFuncional(editTextMinutos.text.toString(),
-                            editTextSegundos.text.toString(),
-                            rbHombre.isChecked)
+                    val minutos = editTextMinutos.text.toString()
+                    val segundos = editTextSegundos.text.toString()
+                    val sexoH = rbHombre.isChecked
+                    miViewModel.run{
+                        setmiResultado(minutos, segundos, sexoH)
+                        setmiMETs(minutos, segundos, sexoH)
+                        setclaseF(minutos, segundos, sexoH)
+                        setcapFuncional(minutos, segundos, sexoH)
+                    }
+
                     UIUtil.hideKeyboard(this@MainActivity)
                 }
             }

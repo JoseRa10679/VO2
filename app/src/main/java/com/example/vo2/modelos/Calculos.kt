@@ -1,4 +1,4 @@
-package com.example.vo2.models
+package com.example.vo2.modelos
 
 import kotlin.math.*
 
@@ -18,9 +18,9 @@ class Calculos {
         private const val tres_nueve: Double = 3.9
 
 //        Capacidad funcional
-        private const val cf_baja = "Capacidad funcional baja"
-        private const val cf_intermedia = "Capacidad funcional intermedia"
-        private const val cf_alta = "Capacidad funcional alta"
+        private const val cf_baja = "Capacidad Funcional Baja"
+        private const val cf_intermedia = "Capacidad Funcional Intermedia"
+        private const val cf_alta = "Capacidad Funcional Alta"
 
 //        Clase Funcional
         private const val cf_I = "Clase Funcional I"
@@ -34,7 +34,7 @@ class Calculos {
         return m + (s/ sesenta)
     }
 
-    fun calculaHombre(h: Double): Double{
+    fun calculoHombre(h: Double): Double{
 
         val h0 = uno_tres*h
         val h2 = cero_cuatro*h.pow(2)
@@ -47,7 +47,7 @@ class Calculos {
         return (cuatro_treintayocho * m) - tres_nueve
     }
 
-    fun clase_F(cf: String): String{
+    fun claseF(cf: String): String{
         val c = cf.toDouble()
         return when{
             c>6 -> cf_I
@@ -57,7 +57,7 @@ class Calculos {
         }
     }
 
-    fun capacidad_F(cf: String): String{
+    fun capacidadF(cf: String): String{
         return when{
             cf.toDouble()<4.5 -> cf_baja
             cf.toDouble() in 4.5..6.0 -> cf_intermedia
